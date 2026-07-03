@@ -1,0 +1,178 @@
+.authContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  /* Layered gradient background */
+  background: 
+    radial-gradient(ellipse 60% 50% at 70% 20%, rgba(124, 77, 255, 0.12), transparent 60%),
+    radial-gradient(ellipse 50% 60% at 20% 80%, rgba(0, 229, 255, 0.1), transparent 60%),
+    radial-gradient(ellipse 80% 40% at 50% 50%, rgba(213, 0, 249, 0.05), transparent 70%),
+    var(--bg-deep-navy);
+}
+
+/* Floating orbs */
+.authContainer::before,
+.authContainer::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.authContainer::before {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(124, 77, 255, 0.2), transparent 70%);
+  top: -100px;
+  right: -50px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.authContainer::after {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.15), transparent 70%);
+  bottom: -80px;
+  left: -30px;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+/* ── Card ── */
+.authCard {
+  width: 100%;
+  max-width: 440px;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  animation: scaleIn 0.5s var(--ease-out-expo);
+}
+
+/* ── Logo ── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.logoIcon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(124, 77, 255, 0.15));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulseGlow 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.logoIcon::after {
+  content: '⚡';
+  font-size: 1.2rem;
+}
+
+.logo h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* ── Heading ── */
+.authCard h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  font-size: 0.95rem;
+}
+
+/* ── Error ── */
+.error {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 23, 68, 0.08);
+  border: 1px solid rgba(255, 23, 68, 0.25);
+  color: var(--loss-crimson);
+  border-radius: var(--radius-sm);
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 0.9rem;
+  animation: fadeInDown 0.3s ease;
+}
+
+/* ── Form ── */
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.inputGroup input {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.25s ease;
+}
+
+.inputGroup input::placeholder {
+  color: var(--text-dim);
+}
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: rgba(0, 229, 255, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.06);
+}
+
+/* ── Switch Auth Link ── */
+.switchAuth {
+  margin-top: 32px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.switchAuth a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .authCard {
+    padding: 32px 24px;
+  }
+}
