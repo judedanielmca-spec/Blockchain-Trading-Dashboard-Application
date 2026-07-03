@@ -38,6 +38,10 @@ const connectDB = async () => {
 connectDB();
 
 // Routes
+app.get('/', (req, res) => {
+  res.send('NexusTrade API is running successfully.');
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/market', marketRoutes);
 app.use('/api/portfolio', portfolioRoutes);
