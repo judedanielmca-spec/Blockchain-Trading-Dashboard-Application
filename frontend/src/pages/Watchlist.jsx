@@ -1,14 +1,12 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
-import { MarketContext } from '../contexts/MarketContext';
 import { Star, TrendingUp, ArrowUpRight, ArrowDownRight, Trash2 } from 'lucide-react';
 import styles from './Watchlist.module.css';
 
 const Watchlist = () => {
   const [watchlist, setWatchlist] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { refreshMarket } = useContext(MarketContext);
   const navigate = useNavigate();
 
   useEffect(() => {

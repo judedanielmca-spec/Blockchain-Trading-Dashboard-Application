@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { MarketContext } from '../contexts/MarketContext';
 import { AuthContext } from '../contexts/AuthContext';
 import api from '../services/api';
@@ -9,7 +9,6 @@ import styles from './Trade.module.css';
 const Trade = () => {
   const [searchParams] = useSearchParams();
   const defaultCoinId = searchParams.get('coin');
-  const navigate = useNavigate();
 
   const { coins } = useContext(MarketContext);
   const { user, setUser } = useContext(AuthContext);
