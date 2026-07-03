@@ -1,4 +1,5 @@
 require('dotenv').config();
+process.env.JWT_SECRET = process.env.JWT_SECRET || 'super_secret_jwt_key_crypto_dashboard_2026';
 const express = require('express');
 
 
