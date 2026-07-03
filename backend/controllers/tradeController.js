@@ -2,6 +2,7 @@ const Transaction = require('../models/Transaction');
 const PortfolioItem = require('../models/PortfolioItem');
 const User = require('../models/User');
 const Coin = require('../models/Coin');
+const Notification = require('../models/Notification');
 
 const tradeCoin = async (req, res) => {
   try {
@@ -65,7 +66,13 @@ const tradeCoin = async (req, res) => {
       totalAmount
     });
 
-    res.status(201).json({ message: `Successfully ${type.toLowerCase()}ed ${quantity} ${coin.symbol.toUpperCase()}`, transaction, newBalance: user.walletBalance });
+    await Notification.create({
+      user: user._id,
+      message: `Successfully ${type === 'BUY' ? 'bought' : 'sold'} ${quantity} ${coin.symbol.toUpperCase()} at $${coin.current_price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (Total: $${totalAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })})`,
+      type: 'SUCCESS'
+    });
+
+    res.status(201).json({ message: `Successfully ${type === 'BUY' ? 'bought' : 'sold'} ${quantity} ${coin.symbol.toUpperCase()}`, transaction, newBalance: user.walletBalance });
 
   } catch (error) {
     res.status(500).json({ message: error.message });
