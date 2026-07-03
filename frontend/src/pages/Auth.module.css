@@ -176,3 +176,14 @@
     padding: 32px 24px;
   }
 }
+
+/* ── Autofill Override ── */
+.inputGroup input:-webkit-autofill,
+.inputGroup input:-webkit-autofill:hover, 
+.inputGroup input:-webkit-autofill:focus,
+.inputGroup input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--text-primary) !important;
+  -webkit-box-shadow: 0 0 0px 1000px #131A2A inset !important;
+  box-shadow: 0 0 0px 1000px #131A2A inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}

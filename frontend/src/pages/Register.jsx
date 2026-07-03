@@ -41,7 +41,7 @@ const Register = () => {
         
         {error && <div className={styles.error}>{error}</div>}
 
-        <form onSubmit={handleSubmit} className={styles.form} id="register-form">
+        <form onSubmit={handleSubmit} className={styles.form} id="register-form" autoComplete="off">
           <div className={styles.inputGroup}>
             <label htmlFor="register-name">Full Name</label>
             <input 
@@ -51,6 +51,7 @@ const Register = () => {
               onChange={(e) => setName(e.target.value)} 
               placeholder="John Doe"
               required 
+              autoComplete="off"
             />
           </div>
           <div className={styles.inputGroup}>
@@ -62,6 +63,7 @@ const Register = () => {
               onChange={(e) => setEmail(e.target.value)} 
               placeholder="Enter your email"
               required 
+              autoComplete="off"
             />
           </div>
           <div className={styles.inputGroup}>
@@ -73,6 +75,7 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)} 
               placeholder="Create a strong password"
               required 
+              autoComplete="new-password"
             />
           </div>
           

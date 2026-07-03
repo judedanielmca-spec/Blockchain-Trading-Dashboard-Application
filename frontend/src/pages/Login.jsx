@@ -41,7 +41,7 @@ const Login = () => {
         
         {error && <div className={styles.error}>{error}</div>}
 
-        <form onSubmit={handleSubmit} className={styles.form} id="login-form">
+        <form onSubmit={handleSubmit} className={styles.form} id="login-form" autoComplete="off">
           <div className={styles.inputGroup}>
             <label htmlFor="login-email">Email Address</label>
             <input 
@@ -51,6 +51,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)} 
               placeholder="Enter your email"
               required 
+              autoComplete="off"
             />
           </div>
           <div className={styles.inputGroup}>
@@ -62,6 +63,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)} 
               placeholder="Enter your password"
               required 
+              autoComplete="new-password"
             />
           </div>
           
